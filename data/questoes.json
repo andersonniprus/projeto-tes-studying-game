@@ -1,0 +1,124 @@
+[
+  {
+    "id": "q1",
+    "disciplina": "Matemática",
+    "ano": 2023,
+    "banca": "FUVEST",
+    "dificuldade": "Médio",
+    "enunciado": "Qual é o valor de x na equação 2x + 6 = 20?",
+    "alternativas": ["5", "7", "8", "10", "12"],
+    "correta": 1,
+    "explicacao": "2x + 6 = 20 → 2x = 14 → x = 7.",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 60
+  },
+  {
+    "id": "q2",
+    "disciplina": "Português",
+    "ano": 2022,
+    "banca": "ENEM",
+    "dificuldade": "Fácil",
+    "enunciado": "Assinale a alternativa em que todas as palavras estão grafadas corretamente:",
+    "alternativas": [
+      "exceção, excesso, excessivo",
+      "excessão, excesso, excessivo",
+      "exceção, eccessso, excessivo",
+      "exceção, excesso, eccessivo",
+      "excessão, eccessso, eccessivo"
+    ],
+    "correta": 0,
+    "explicacao": "As formas corretas são: exceção, excesso e excessivo.",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 45
+  },
+  {
+    "id": "q3",
+    "disciplina": "História",
+    "ano": 2024,
+    "banca": "UNICAMP",
+    "dificuldade": "Difícil",
+    "enunciado": "A Revolução Francesa (1789) teve como uma de suas consequências imediatas:",
+    "alternativas": [
+      "O fim absoluto da monarquia em toda a Europa",
+      "A Declaração dos Direitos do Homem e do Cidadão",
+      "A unificação da Alemanha",
+      "O início da Primeira Guerra Mundial",
+      "A independência do Brasil"
+    ],
+    "correta": 1,
+    "explicacao": "Em 1789 foi proclamada a Declaração dos Direitos do Homem e do Cidadão, marco fundamental da Revolução Francesa.",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 90
+  },
+  {
+    "id": "q4",
+    "disciplina": "Matemática",
+    "ano": 2021,
+    "banca": "ENEM",
+    "dificuldade": "Fácil",
+    "enunciado": "Se um produto custa R$ 80,00 e sofre um desconto de 25%, qual o valor final?",
+    "alternativas": ["R$ 20,00", "R$ 40,00", "R$ 55,00", "R$ 60,00", "R$ 75,00"],
+    "correta": 3,
+    "explicacao": "25% de 80 = 20. Logo, 80 − 20 = 60.",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 40
+  },
+  {
+    "id": "q5",
+    "disciplina": "Geografia",
+    "ano": 2023,
+    "banca": "FUVEST",
+    "dificuldade": "Médio",
+    "enunciado": "O bioma brasileiro caracterizado por árvores retorcidas, solo ácido e queimadas naturais periódicas é:",
+    "alternativas": ["Amazônia", "Mata Atlântica", "Cerrado", "Pampa", "Caatinga"],
+    "correta": 2,
+    "explicacao": "O Cerrado apresenta vegetação típica de árvores tortuosas e está adaptado a ciclos de fogo.",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 50
+  },
+  {
+    "id": "q6",
+    "disciplina": "Português",
+    "ano": 2023,
+    "banca": "UNICAMP",
+    "dificuldade": "Médio",
+    "enunciado": "Na frase \"Embora chovesse, fomos ao parque\", a oração destacada expressa ideia de:",
+    "alternativas": ["Causa", "Concessão", "Condição", "Finalidade", "Tempo"],
+    "correta": 1,
+    "explicacao": "\"Embora\" introduz oração concessiva (contraste/concessão).",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 50
+  },
+  {
+    "id": "q7",
+    "disciplina": "Matemática",
+    "ano": 2022,
+    "banca": "UNICAMP",
+    "dificuldade": "Difícil",
+    "enunciado": "A área de um triângulo equilátero de lado 6 cm é aproximadamente: (use √3 ≈ 1,73)",
+    "alternativas": ["9 cm²", "15,57 cm²", "18 cm²", "20,76 cm²", "36 cm²"],
+    "correta": 1,
+    "explicacao": "Área = (lado² × √3) / 4 = (36 × 1,73) / 4 ≈ 15,57 cm².",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 90
+  },
+  {
+    "id": "q8",
+    "disciplina": "História",
+    "ano": 2021,
+    "banca": "ENEM",
+    "dificuldade": "Médio",
+    "enunciado": "O período conhecido como Era Vargas no Brasil (1930–1945) caracterizou-se principalmente por:",
+    "alternativas": [
+      "Liberalismo econômico extremo",
+      "Centralização do poder e políticas trabalhistas",
+      "Independência das províncias",
+      "Adoção do parlamentarismo inglês",
+      "Fim completo da industrialização"
+    ],
+    "correta": 1,
+    "explicacao": "Vargas promoveu centralização política e criou a legislação trabalhista (CLT).",
+    "pontosBase": 100,
+    "tempoLimiteSeg": 60
+  }
+]

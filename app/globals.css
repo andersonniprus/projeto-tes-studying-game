@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #042f2e;
+  --foreground: #ecfdf5;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html {
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: radial-gradient(ellipse at top, #064e3b 0%, #042f2e 42%, #022c22 100%);
+  min-height: 100vh;
+}
+
+::selection {
+  background: #34d399;
+  color: #022c22;
+}
+
+:focus-visible {
+  outline: 2px solid #6ee7b7;
+  outline-offset: 3px;
+}
+
+input,
+textarea,
+select {
+  caret-color: #a7f3d0;
+}
+
+select {
+  color-scheme: dark;
+}
+
+* {
+  scrollbar-color: #047857 transparent;
+  scrollbar-width: thin;
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-14 items-center justify-center rounded-2xl bg-emerald-400 px-7 py-4 text-lg font-semibold text-emerald-950 shadow-[0_10px_28px_-12px_rgba(0,0,0,0.65)];
+    transition:
+      background-color 160ms var(--ease-out),
+      transform 160ms var(--ease-out);
+  }
+
+  .btn-primary:hover {
+    @apply bg-emerald-300;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-14 items-center justify-center rounded-2xl border border-emerald-600/60 bg-emerald-900/50 px-7 py-4 text-lg font-medium text-emerald-50;
+    transition:
+      background-color 160ms var(--ease-out),
+      transform 160ms var(--ease-out);
+  }
+
+  .btn-secondary:hover {
+    @apply bg-emerald-800/70;
+  }
+
+  .btn-secondary:active {
+    transform: scale(0.97);
+  }
+
+  .card {
+    @apply rounded-3xl border border-emerald-700/45 bg-emerald-950/70 p-6 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.7)] sm:p-8;
+  }
+
+  .input-field {
+    @apply min-h-14 w-full rounded-2xl border border-emerald-700/55 bg-emerald-950/80 px-4 py-3 text-lg text-emerald-50 outline-none ring-emerald-300 placeholder:text-emerald-400/55 focus:ring-2;
+  }
+
+  .choice {
+    @apply flex w-full items-start gap-4 rounded-2xl border px-5 py-4 text-left text-lg leading-snug;
+    transition:
+      background-color 160ms var(--ease-out),
+      border-color 160ms var(--ease-out),
+      transform 160ms var(--ease-out);
+  }
+
+  .choice:active {
+    transform: scale(0.985);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary:active,
+  .btn-secondary:active,
+  .choice:active {
+    transform: none;
+  }
+}
