@@ -35,24 +35,25 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-5 py-12">
-      <div className="card w-full max-w-xl">
-        <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-emerald-100 sm:text-5xl">
+    <main className="flex min-h-screen flex-col items-center justify-center py-10">
+      <div className="card w-full max-w-md">
+        <div className="mb-6 text-center">
+          <p className="text-3xl">📚</p>
+          <h1 className="mt-2 text-2xl font-bold text-emerald-200">
             Studying game
           </h1>
-          <p className="mx-auto mt-3 max-w-[36ch] text-lg text-emerald-100/75">
-            Vestibular gamificado, com menos cansaço e mais progresso.
+          <p className="mt-1 text-sm text-emerald-300/70">
+            Vestibular gamificado — menos cansaço, mais progresso
           </p>
         </div>
 
-        <div className="mb-6 flex rounded-2xl bg-emerald-900/50 p-1.5 text-lg">
+        <div className="mb-4 flex rounded-xl bg-emerald-950/50 p-1 text-sm">
           <button
             type="button"
-            className={`min-h-12 flex-1 rounded-xl py-2 ${
+            className={`flex-1 rounded-lg py-2 ${
               modo === "cadastro"
-                ? "bg-emerald-500 font-semibold text-emerald-950"
-                : "text-emerald-100/75"
+                ? "bg-emerald-600 text-white"
+                : "text-emerald-300/70"
             }`}
             onClick={() => setModo("cadastro")}
           >
@@ -60,10 +61,10 @@ export default function LoginPage() {
           </button>
           <button
             type="button"
-            className={`min-h-12 flex-1 rounded-xl py-2 ${
+            className={`flex-1 rounded-lg py-2 ${
               modo === "login"
-                ? "bg-emerald-500 font-semibold text-emerald-950"
-                : "text-emerald-100/75"
+                ? "bg-emerald-600 text-white"
+                : "text-emerald-300/70"
             }`}
             onClick={() => setModo("login")}
           >
@@ -71,10 +72,10 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {modo === "cadastro" && (
             <div>
-              <label className="mb-2 block text-base text-emerald-100/85">
+              <label className="mb-1 block text-sm text-emerald-200/80">
                 Nome
               </label>
               <input
@@ -86,7 +87,7 @@ export default function LoginPage() {
             </div>
           )}
           <div>
-            <label className="mb-2 block text-base text-emerald-100/85">
+            <label className="mb-1 block text-sm text-emerald-200/80">
               E-mail
             </label>
             <input
@@ -98,7 +99,7 @@ export default function LoginPage() {
             />
           </div>
           <div>
-            <label className="mb-2 block text-base text-emerald-100/85">
+            <label className="mb-1 block text-sm text-emerald-200/80">
               Senha
             </label>
             <input
@@ -111,7 +112,7 @@ export default function LoginPage() {
           </div>
 
           {erro && (
-            <p className="rounded-2xl bg-red-500/15 px-4 py-3 text-base text-red-200">
+            <p className="rounded-lg bg-red-500/15 px-3 py-2 text-sm text-red-300">
               {erro}
             </p>
           )}
@@ -121,8 +122,8 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-base text-emerald-200/60">
-          Demo local. Os dados ficam neste navegador.
+        <p className="mt-4 text-center text-xs text-emerald-400/50">
+          Demo local — dados salvos no navegador (localStorage)
         </p>
       </div>
     </main>

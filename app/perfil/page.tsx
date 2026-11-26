@@ -33,7 +33,7 @@ export default function PerfilPage() {
 
   if (!progress) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-lg text-emerald-100/80">
+      <div className="flex min-h-[60vh] items-center justify-center text-emerald-200/70">
         Carregando...
       </div>
     );
@@ -45,57 +45,55 @@ export default function PerfilPage() {
   return (
     <>
       <Header nome={progress.nome} streak={progress.streakDias} />
-      <main className="shell mt-8 space-y-8 pb-16">
-        <div className="flex items-end justify-between gap-4">
-          <h1 className="text-4xl font-bold tracking-tight text-white">Meu perfil</h1>
-          <Link href="/" className="shrink-0 text-lg text-emerald-200 hover:text-white">
-            Voltar
+      <main className="mt-6 space-y-5">
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl font-bold text-white">Meu perfil</h1>
+          <Link href="/" className="text-sm text-emerald-300/80 hover:text-white">
+            ← Home
           </Link>
         </div>
 
-        <section className="card">
-          <p className="text-3xl font-bold text-white sm:text-4xl">{progress.nome}</p>
-          <p className="mt-2 text-lg text-emerald-100/75">{progress.email}</p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-emerald-900/50 px-5 py-5">
-              <p className="text-emerald-200/80">Pontos</p>
-              <p className="mt-1 text-3xl font-bold tabular-nums text-lime-300">
+        <section className="card space-y-2">
+          <p className="text-2xl font-bold text-white">{progress.nome}</p>
+          <p className="text-sm text-emerald-300/70">{progress.email}</p>
+          <div className="mt-3 grid grid-cols-3 gap-2 text-center text-sm">
+            <div className="rounded-xl bg-emerald-950/50 py-3">
+              <p className="text-emerald-400/60">Pontos</p>
+              <p className="font-bold text-lime-300">
                 {progress.pontosTotais.toLocaleString("pt-BR")}
               </p>
             </div>
-            <div className="rounded-2xl bg-emerald-900/50 px-5 py-5">
-              <p className="text-emerald-200/80">Streak</p>
-              <p className="mt-1 text-3xl font-bold tabular-nums text-orange-200">
+            <div className="rounded-xl bg-emerald-950/50 py-3">
+              <p className="text-emerald-400/60">Streak</p>
+              <p className="font-bold text-orange-300">
                 {progress.streakDias}d
               </p>
             </div>
-            <div className="rounded-2xl bg-emerald-900/50 px-5 py-5">
-              <p className="text-emerald-200/80">Multiplicador</p>
-              <p className="mt-1 text-3xl font-bold tabular-nums text-emerald-100">
-                {mult}x
-              </p>
+            <div className="rounded-xl bg-emerald-950/50 py-3">
+              <p className="text-emerald-400/60">Mult.</p>
+              <p className="font-bold text-emerald-200">{mult}x</p>
             </div>
           </div>
         </section>
 
-        <section className="card space-y-6">
-          <h2 className="text-2xl font-semibold text-emerald-50">
+        <section className="card space-y-4">
+          <h2 className="font-semibold text-emerald-100">
             Acertos por disciplina
           </h2>
           {disciplinas.length === 0 ? (
-            <p className="text-lg text-emerald-100/70">Sem dados ainda.</p>
+            <p className="text-sm text-emerald-300/60">Sem dados ainda.</p>
           ) : (
             disciplinas.map(([nome, stats]) => {
               const pct = percentualAcertos(stats.acertos, stats.total);
               const dificil = podeDesbloquearDificil(stats.acertos, stats.total);
               return (
-                <div key={nome} className="space-y-2">
+                <div key={nome} className="space-y-1">
                   <ProgressBar label={nome} percent={pct} />
-                  <p className="text-base text-emerald-200/70">
+                  <p className="text-xs text-emerald-400/60">
                     {stats.acertos}/{stats.total} acertos
                     {dificil
-                      ? ". Nível Difícil desbloqueado."
-                      : ". Difícil pede 70% em pelo menos 20 questões."}
+                      ? " · Nível Difícil desbloqueado ✓"
+                      : " · Difícil: precisa 70% em ≥20 questões"}
                   </p>
                 </div>
               );

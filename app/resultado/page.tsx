@@ -23,7 +23,7 @@ function ResultadoContent() {
 
   if (!questao) {
     return (
-      <div className="mt-16 text-center text-lg text-emerald-100/80">
+      <div className="mt-10 text-center text-emerald-200/70">
         Resultado indisponível.{" "}
         <Link href="/questoes" className="underline">
           Voltar às questões
@@ -38,28 +38,27 @@ function ResultadoContent() {
         nome={progress?.nome}
         streak={progress?.streakDias}
       />
-      <main className="shell mt-8 space-y-8 pb-16">
+      <main className="mt-6 space-y-5">
         <section
           className={`card text-center ${
             acertou
-              ? "border-lime-400/50 bg-lime-950/40"
-              : "border-red-400/40 bg-red-950/40"
+              ? "border-lime-500/40 bg-lime-900/20"
+              : "border-red-500/30 bg-red-950/20"
           }`}
         >
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            {acertou ? "Você acertou" : "Resposta incorreta"}
+          <p className="text-4xl">{acertou ? "✓" : "✗"}</p>
+          <h1 className="mt-2 text-xl font-bold text-white">
+            {acertou ? "Você acertou!" : "Resposta incorreta"}
           </h1>
           {acertou && (
-            <p className="mt-3 text-3xl font-semibold tabular-nums text-lime-300">
-              +{pontos} pontos
-            </p>
+            <p className="mt-1 text-lime-300">+{pontos} pontos</p>
           )}
         </section>
 
-        <section className="card space-y-5 text-lg">
+        <section className="card space-y-3 text-sm">
           <p>
-            <span className="text-emerald-200/75">Sua resposta: </span>
-            <span className={acertou ? "text-lime-200" : "text-red-200"}>
+            <span className="text-emerald-400/70">Sua resposta: </span>
+            <span className={acertou ? "text-lime-300" : "text-red-300"}>
               {escolhida >= 0
                 ? `${String.fromCharCode(65 + escolhida)}. ${questao.alternativas[escolhida]}`
                 : "—"}
@@ -67,31 +66,29 @@ function ResultadoContent() {
           </p>
           {!acertou && (
             <p>
-              <span className="text-emerald-200/75">Correta: </span>
-              <span className="text-lime-200">
+              <span className="text-emerald-400/70">Correta: </span>
+              <span className="text-lime-300">
                 {String.fromCharCode(65 + questao.correta)}.{" "}
                 {questao.alternativas[questao.correta]}
               </span>
             </p>
           )}
-          <div className="rounded-2xl bg-emerald-900/45 p-5">
-            <p className="mb-2 text-lg font-semibold text-emerald-100">
+          <div className="rounded-xl bg-emerald-950/50 p-3">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-emerald-400/60">
               Explicação
             </p>
-            <p className="max-w-[68ch] leading-relaxed text-emerald-50">
-              {questao.explicacao}
-            </p>
+            <p className="text-emerald-50">{questao.explicacao}</p>
           </div>
         </section>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="flex flex-col gap-3 sm:flex-row">
           <Link
             href={modoSimulado ? "/questoes?modo=simulado" : "/questoes"}
-            className="btn-primary w-full"
+            className="btn-primary flex-1 text-center"
           >
             Próxima questão
           </Link>
-          <Link href="/" className="btn-secondary w-full">
+          <Link href="/" className="btn-secondary flex-1 text-center">
             Ir para Home
           </Link>
         </div>
@@ -104,7 +101,7 @@ export default function ResultadoPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-screen items-center justify-center text-lg text-emerald-100/80">
+        <div className="flex min-h-[60vh] items-center justify-center text-emerald-200/70">
           Carregando resultado...
         </div>
       }

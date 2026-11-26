@@ -115,7 +115,7 @@ export default function QuestaoPage() {
 
   if (!questao || !progress) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-lg text-emerald-100/80">
+      <div className="flex min-h-[60vh] items-center justify-center text-emerald-200/70">
         {questao ? "Carregando..." : "Questão não encontrada."}
       </div>
     );
@@ -124,54 +124,52 @@ export default function QuestaoPage() {
   return (
     <>
       <Header nome={progress.nome} streak={progress.streakDias} />
-      <main className="shell mt-8 space-y-8 pb-16">
-        <div className="flex flex-wrap items-center justify-between gap-3 text-lg text-emerald-100/85">
+      <main className="mt-6 space-y-5">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-emerald-300/80">
           <Link href="/questoes" className="hover:text-white">
-            Voltar
+            ← Voltar
           </Link>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex gap-3">
             <span>
-              {questao.disciplina}, {questao.dificuldade}
+              {questao.disciplina} · {questao.dificuldade}
             </span>
             {modoSimulado && (
               <span
                 className={
-                  restante <= 10
-                    ? "font-bold tabular-nums text-red-200"
-                    : "tabular-nums text-orange-200"
+                  restante <= 10 ? "font-bold text-red-300" : "text-orange-300"
                 }
               >
-                {restante}s
+                ⏱ {restante}s
               </span>
             )}
           </div>
         </div>
 
         <section className="card">
-          <p className="text-base text-emerald-200/75">
-            {questao.banca}, {questao.ano}
+          <p className="text-xs text-emerald-400/60">
+            {questao.banca} · {questao.ano}
           </p>
-          <h1 className="mt-4 max-w-[68ch] text-2xl font-medium leading-relaxed text-white sm:text-3xl">
+          <h1 className="mt-2 text-lg font-medium leading-relaxed text-white">
             {questao.enunciado}
           </h1>
         </section>
 
-        <ul className="space-y-3">
+        <ul className="space-y-2">
           {questao.alternativas.map((alt, i) => (
             <li key={i}>
               <button
                 type="button"
                 onClick={() => setSelecionada(i)}
-                className={`choice ${
+                className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition ${
                   selecionada === i
-                    ? "border-emerald-300 bg-emerald-600/35 text-white"
-                    : "border-emerald-800/60 bg-emerald-950/55 text-emerald-50 hover:border-emerald-500"
+                    ? "border-emerald-400 bg-emerald-600/30 text-white"
+                    : "border-emerald-800/50 bg-emerald-950/40 text-emerald-100 hover:border-emerald-600"
                 }`}
               >
-                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-900 text-base font-bold text-emerald-200">
-                  {String.fromCharCode(65 + i)}
+                <span className="mr-2 font-semibold text-emerald-400">
+                  {String.fromCharCode(65 + i)}.
                 </span>
-                <span>{alt}</span>
+                {alt}
               </button>
             </li>
           ))}

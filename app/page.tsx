@@ -24,7 +24,7 @@ export default function HomePage() {
 
   if (!progress) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-lg text-emerald-100/80">
+      <div className="flex min-h-[60vh] items-center justify-center text-emerald-200/70">
         Carregando...
       </div>
     );
@@ -36,52 +36,51 @@ export default function HomePage() {
   return (
     <>
       <Header nome={progress.nome} streak={progress.streakDias} />
-      <main className="shell mt-8 space-y-8 pb-16">
+      <main className="mt-6 space-y-6">
         <section className="card">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Olá, {progress.nome}
+          <p className="text-sm text-emerald-300/70">Bem-vindo de volta</p>
+          <h1 className="mt-1 text-2xl font-bold text-white">
+            Olá, {progress.nome}!
           </h1>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-emerald-900/50 px-5 py-5">
-              <p className="text-emerald-200/80">Pontos</p>
-              <p className="mt-1 text-4xl font-bold tabular-nums text-lime-300">
+          <div className="mt-4 flex flex-wrap gap-4 text-sm">
+            <div className="rounded-xl bg-emerald-950/60 px-4 py-3">
+              <p className="text-emerald-400/70">Pontos</p>
+              <p className="text-xl font-bold text-lime-300">
                 {progress.pontosTotais.toLocaleString("pt-BR")}
               </p>
             </div>
-            <div className="rounded-2xl bg-emerald-900/50 px-5 py-5">
-              <p className="text-emerald-200/80">Streak</p>
-              <p className="mt-1 text-4xl font-bold tabular-nums text-orange-200">
-                {progress.streakDias}
-                <span className="ml-2 text-xl font-medium">
-                  dia{progress.streakDias === 1 ? "" : "s"}
-                </span>
+            <div className="rounded-xl bg-emerald-950/60 px-4 py-3">
+              <p className="text-emerald-400/70">Streak</p>
+              <p className="text-xl font-bold text-orange-300">
+                🔥 {progress.streakDias} dia{progress.streakDias === 1 ? "" : "s"}
               </p>
             </div>
-            <div className="rounded-2xl bg-emerald-900/50 px-5 py-5">
-              <p className="text-emerald-200/80">Multiplicador</p>
-              <p className="mt-1 text-4xl font-bold tabular-nums text-emerald-100">
-                {mult}x
-              </p>
+            <div className="rounded-xl bg-emerald-950/60 px-4 py-3">
+              <p className="text-emerald-400/70">Multiplicador</p>
+              <p className="text-xl font-bold text-emerald-200">{mult}x</p>
             </div>
           </div>
         </section>
 
-        <section className="grid gap-4 sm:grid-cols-2">
-          <Link href="/questoes" className="btn-primary">
+        <section className="flex flex-col gap-3 sm:flex-row">
+          <Link href="/questoes" className="btn-primary flex-1 text-center">
             Continuar estudando
           </Link>
-          <Link href="/questoes?modo=simulado" className="btn-secondary">
+          <Link
+            href="/questoes?modo=simulado"
+            className="btn-secondary flex-1 text-center"
+          >
             Iniciar simulado
           </Link>
         </section>
 
-        <section className="card space-y-6">
-          <h2 className="text-2xl font-semibold text-emerald-50">
+        <section className="card space-y-4">
+          <h2 className="font-semibold text-emerald-100">
             Progresso por disciplina
           </h2>
           {disciplinas.length === 0 ? (
-            <p className="text-lg text-emerald-200/75">
-              Ainda não há respostas. Comece a praticar.
+            <p className="text-sm text-emerald-300/60">
+              Ainda não há respostas. Comece a praticar!
             </p>
           ) : (
             disciplinas.map(([nome, stats]) => (
@@ -96,24 +95,22 @@ export default function HomePage() {
 
         {progress.historico.length > 0 && (
           <section className="card">
-            <h2 className="mb-5 text-2xl font-semibold text-emerald-50">
+            <h2 className="mb-3 font-semibold text-emerald-100">
               Últimas respostas
             </h2>
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-2 text-sm">
               {progress.historico
                 .slice(-5)
                 .reverse()
                 .map((h, i) => (
                   <li
                     key={i}
-                    className="flex items-center justify-between gap-4 rounded-2xl bg-emerald-900/40 px-5 py-4"
+                    className="flex justify-between rounded-lg bg-emerald-950/40 px-3 py-2"
                   >
                     <span>
-                      {h.acertou ? "Acertou" : "Errou"} a questão {h.questaoId}
+                      {h.acertou ? "✓" : "✗"} Questão {h.questaoId}
                     </span>
-                    <span className="font-semibold tabular-nums text-lime-300">
-                      +{h.pontos} pts
-                    </span>
+                    <span className="text-lime-300">+{h.pontos} pts</span>
                   </li>
                 ))}
             </ul>

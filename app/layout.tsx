@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geist = localFont({
-  src: "./fonts/GeistVF.woff",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Studying game — Vestibular gamificado",
@@ -20,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${geist.className} antialiased`}>{children}</body>
+      <body className="antialiased">
+        <div className="mx-auto min-h-screen max-w-3xl px-4 pb-16 pt-0">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

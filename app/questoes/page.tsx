@@ -53,7 +53,7 @@ function QuestoesContent() {
 
   if (!progress) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-lg text-emerald-100/80">
+      <div className="flex min-h-[60vh] items-center justify-center text-emerald-200/70">
         Carregando...
       </div>
     );
@@ -62,18 +62,18 @@ function QuestoesContent() {
   return (
     <>
       <Header nome={progress.nome} streak={progress.streakDias} />
-      <main className="shell mt-8 space-y-8 pb-16">
-        <div className="flex items-end justify-between gap-4">
-          <h1 className="text-4xl font-bold tracking-tight text-white">
+      <main className="mt-6 space-y-5">
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl font-bold text-white">
             {modoSimulado ? "Simulado personalizado" : "Banco de questões"}
           </h1>
-          <Link href="/" className="shrink-0 text-lg text-emerald-200 hover:text-white">
-            Voltar
+          <Link href="/" className="text-sm text-emerald-300/80 hover:text-white">
+            ← Home
           </Link>
         </div>
 
         {!modoSimulado && (
-          <div className="card grid gap-4 sm:grid-cols-3">
+          <div className="card grid gap-3 sm:grid-cols-3">
             <select
               className="input-field"
               value={disciplina}
@@ -112,20 +112,20 @@ function QuestoesContent() {
         )}
 
         {modoSimulado && (
-          <p className="text-lg text-emerald-100/80">
-            Prioriza disciplinas com menos de 60% de acertos.
+          <p className="text-sm text-emerald-300/70">
+            Prioriza disciplinas com menos de 60% de acertos (RN-004).
           </p>
         )}
 
-        <ul className="space-y-4">
+        <ul className="space-y-3">
           {lista.map((q) => (
             <li key={q.id}>
               <Link
                 href={`/questao/${q.id}${modoSimulado ? "?modo=simulado" : ""}`}
-                className="card block hover:border-emerald-400/70 hover:bg-emerald-900/80"
+                className="card block transition hover:border-emerald-500/60 hover:bg-emerald-900/60"
               >
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-base text-emerald-100/80">
-                  <span className="rounded-full bg-emerald-800/70 px-3 py-1 text-emerald-50">
+                <div className="flex flex-wrap gap-2 text-xs text-emerald-300/70">
+                  <span className="rounded-full bg-emerald-800/50 px-2 py-0.5">
                     {q.disciplina}
                   </span>
                   <span>{q.ano}</span>
@@ -133,23 +133,23 @@ function QuestoesContent() {
                   <span
                     className={
                       q.dificuldade === "Difícil"
-                        ? "text-orange-200"
+                        ? "text-orange-300"
                         : q.dificuldade === "Médio"
-                        ? "text-yellow-200"
-                        : "text-lime-200"
+                        ? "text-yellow-300"
+                        : "text-lime-300"
                     }
                   >
                     {q.dificuldade}
                   </span>
                 </div>
-                <p className="mt-4 line-clamp-3 text-xl leading-relaxed text-emerald-50">
+                <p className="mt-2 line-clamp-2 text-sm text-emerald-50">
                   {q.enunciado}
                 </p>
               </Link>
             </li>
           ))}
           {lista.length === 0 && (
-            <p className="text-center text-lg text-emerald-100/70">
+            <p className="text-center text-sm text-emerald-300/60">
               Nenhuma questão com esses filtros.
             </p>
           )}
@@ -162,7 +162,7 @@ function QuestoesContent() {
 
 export default function QuestoesPage() {
   return (
-    <Suspense fallback={<div className="flex min-h-screen items-center justify-center text-lg text-emerald-100/80">Carregando...</div>}>
+    <Suspense fallback={<div className="flex min-h-[60vh] items-center justify-center text-emerald-200/70">Carregando...</div>}>
       <QuestoesContent />
     </Suspense>
   );
